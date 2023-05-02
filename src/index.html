@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="./pl_nts.json.js"></script>
+    <script type="text/javascript" src="./nan-helper.js"></script>
+
+    <title>Title</title>
+
+    <script>
+    $(document).ready(function() {
+
+      $('#refTable').DataTable( {
+//          ajax: "/ajaxForTable",
+          bPaginate: false,
+          data: aDemoItems,
+          columns: [
+              { data: "name", render: denuller },
+              { data: "output", render: denuller },
+              { data: "out_10", render: denuller },
+              { data: "seed", render: denuller },
+              { data: "price_s", render: denuller },
+              { data: "price_vb", render: denuller },
+              { data: "bndl_prof", render: denuller },
+//              { data: "date", render: function ( data, type, row ) { return Ms2YYYYMMDD(data * 24000 * 3600); } },
+//              { data: "dateTimeMs", render: function ( data, type, row ) { return Ms2YYYYMMDDhhmmssttt(data); } },
+              { data: "t_sngl_min", render: denuller },
+              { data: "t_bndl_min", render: denuller },
+              { data: "t_harv_min", render: denuller }
+          ]
+      } );
+    } );
+  </script>
+</head>
+<body>
+
+<img src="./images/Bookshelf.jpg" align="right" width="222" />
+
+<h1>Nenko's Home Library Catalogue</h1>
+<h4>Reference data</h4>
+
+<table id="refTable" class="display" cellspacing="0" width="100%" border="1">
+    <thead>
+    <tr>
+        <th>name</th>
+        <th>output</th>
+        <th>out_10</th>
+        <th>seed</th>
+        <th>price_s</th>
+        <th>price_vb</th>
+        <th>bndl_prof</th>
+        <th>t_sngl_min</th>
+        <th>t_bndl_min</th>
+        <th>t_harv_min</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>name</th>
+        <th>output</th>
+        <th>out_10</th>
+        <th>seed</th>
+        <th>price_s</th>
+        <th>price_vb</th>
+        <th>bndl_prof</th>
+        <th>t_sngl_min</th>
+        <th>t_bndl_min</th>
+        <th>t_harv_min</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>
