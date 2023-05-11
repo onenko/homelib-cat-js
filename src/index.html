@@ -7,87 +7,38 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript" src="./lang-helper.js"></script>
-    <script type="text/javascript" src="./file-helper.js"></script>
+    <!-- script type="text/javascript" src="./file-helper.js"></script -->
 
-    <script type="text/javascript" src="./pl_nts.json.js"></script>
+    <script type="text/javascript" src="./data/data-for-view-main.js"></script>
+
+    <script type="text/javascript" src="./view-main.js"></script>
+
     <script type="text/javascript" src="./nan-helper.js"></script>
+    <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.02</title>
+    <title>Nenko's Home Library Catalogue v0.03</title>
 
     <script>
     $(document).ready(function() {
-
-      console.log("TEST 1 START");
-      console.log(LangHelper.isValid("az"));
-      console.log(LangHelper.isValid("ZZ"));
-      console.log(LangHelper.isValid("uk"));
-      console.log("TEST 1 END");
-
-      console.log("TEST 2 START");
-      read_lines_and_process('descr-helper.js', new function(line) {
-        console.log("Line: line");
-      });
-      console.log("TEST 2 END");
-
-      $('#refTable').DataTable( {
-//          ajax: "/ajaxForTable",
-          bPaginate: false,
-          data: aDemoItems,
-          columns: [
-              { data: "name", render: denuller },
-              { data: "output", render: denuller },
-              { data: "out_10", render: denuller },
-              { data: "seed", render: denuller },
-              { data: "price_s", render: denuller },
-              { data: "price_vb", render: denuller },
-              { data: "bndl_prof", render: denuller },
-//              { data: "date", render: function ( data, type, row ) { return Ms2YYYYMMDD(data * 24000 * 3600); } },
-//              { data: "dateTimeMs", render: function ( data, type, row ) { return Ms2YYYYMMDDhhmmssttt(data); } },
-              { data: "t_sngl_min", render: denuller },
-              { data: "t_bndl_min", render: denuller },
-              { data: "t_harv_min", render: denuller }
-          ]
-      } );
-    } );
+        UT.LangHelperTest();
+        ViewMain.initTable();
+    });
   </script>
 </head>
+
 <body>
-
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
+<h1>Nenko's Home Library Catalogue v0.03</h1>
 
-<h1>Nenko's Home Library Catalogue v0.02</h1>
-<h4>Reference data</h4>
-
-<table id="refTable" class="display" cellspacing="0" width="100%" border="1">
-    <thead>
-    <tr>
-        <th>name</th>
-        <th>output</th>
-        <th>out_10</th>
-        <th>seed</th>
-        <th>price_s</th>
-        <th>price_vb</th>
-        <th>bndl_prof</th>
-        <th>t_sngl_min</th>
-        <th>t_bndl_min</th>
-        <th>t_harv_min</th>
-    </tr>
-    </thead>
+<table id="tbl" class="display" cellspacing="0" width="100%" border="1">
     <tfoot>
-    <tr>
-        <th>name</th>
-        <th>output</th>
-        <th>out_10</th>
-        <th>seed</th>
-        <th>price_s</th>
-        <th>price_vb</th>
-        <th>bndl_prof</th>
-        <th>t_sngl_min</th>
-        <th>t_bndl_min</th>
-        <th>t_harv_min</th>
-    </tr>
+    <tr id="tfoot-tr" />
     </tfoot>
 </table>
+
+<br/>
+<br/>
+<center>(c) 2023 Oleksandr Nenko</center>
 
 </body>
 </html>
