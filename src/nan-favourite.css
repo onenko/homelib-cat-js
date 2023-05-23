@@ -1,0 +1,248 @@
+/*
+** nan-favourite.css
+**
+** 230518 v01 minimum draft with body, headers, link and table coloring
+*/
+
+body {
+    background-color:#230012;
+    color:#CCCCCC;
+    font-family: Tahoma;
+    font-size:15px;
+    font-weight:500;	/* 400 - normal, 700 - bold */
+}
+
+a:link { color:#DDDDCC; font-weight:600; }
+a:visited { color:#CCCCCC; font-weight:550; }
+a:hover { color:#EEEECC; font-weight:550; }
+a:active { color:#FFFFCC; font-weight:550; }
+
+h1 { color:#EEEEEE; font-size:26px; font-weight:550; text-align:center;}
+h2 { color:#EEEEEE; font-size:24px; font-weight:540; }
+h3 { color:#DDDDDD; font-size:22px; font-weight:530; }
+h4 { color:#DDDDDD; font-size:20px; font-weight:520; }
+h5 { color:#CCCCCC; font-size:18px; font-weight:510; }
+h6 { color:#CCCCCC; font-size:16px; font-weight:500; }
+
+table
+{
+    /* width: 100%; -- this is good only for layout tables */
+    border-collapse:collapse;
+    border: 0px solid #993377;
+    background-color:#330022;
+    color:#CCCCCC;
+    font-family: verdana,helvetica,arial,sans-serif;	/*Tahoma;*/
+    font-size:14px;
+    font-weight:500;	/* 400 - normal, 700 - bold */
+}
+
+hr {
+    border: 0;
+    color:#770077;
+    background-color:#770077;
+    height:1px;
+}
+
+td, th {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+td {
+    border: 1px solid #993377;
+    background-color:#330022;
+}
+
+th, tfoot td {
+    border: 1px solid #993377;
+    background-color:#550033;
+    font-weight:400;	/* 400 - normal, 700 - bold */
+}
+
+td.error {
+    background-color:#440000;
+    color: #CCCC00;
+}
+
+td.dimmed {
+    background-color:#300020;
+    color: #777777;
+}
+
+
+/*
+
+
+td.title {
+    border: 0px;
+    background-color:#330022;
+}
+
+td.fnote {
+    border: 0px;
+    background-color:#330022;
+}
+
+td.cell-with-main-area {
+    border: 0px;
+    background-color:#330022;
+}
+
+
+
+
+table.layout-table
+{
+    width: 100%;
+    border-style: none;
+}
+
+td.left-panel
+{
+    width:144px;
+    border: 0px;
+}
+
+td.right-panel-with-main-area
+{
+    border: 0px;
+    height: 100%;
+    align: top;
+}
+
+td.vertical-gap
+{
+    width:9px;
+    border: 0px;
+}
+
+td.vertical-divider
+{
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 1px dotted #880088;
+}
+
+td.main-area-header, td.main-area-footer, td.main-area-content, td.news-column
+{
+    border: 0;
+}
+
+table.news
+{
+    width: 90%;
+    border-style: none;
+}
+
+td.news
+{
+    border: 1px solid #662244;
+    background-color:#441133;
+}
+
+span.tiny, a.tiny
+{
+    font-size:9px;
+    font-weight:200;
+}
+
+div.radia-item {
+    height: 130px;
+}
+
+div.radia-body {
+    text-align:center;
+}
+
+table#radiator td {
+    border: 0px;
+    padding: 3px;
+}
+
+table#radiator div.success {
+    background-color:green;
+    color:white;
+}
+
+table#radiator div.processing {
+    background-color:blue;
+    color:yellow;
+}
+
+table#radiator div.missing {
+    background-color:#330000;
+    color:grey;
+}
+
+table#radiator div.warning {
+    background-color:yellow;
+    color:black;
+}
+
+table#radiator div.failure {
+    background-color:darkred;
+    color:yellow;
+}
+
+table#radiator div.error {
+    background-color:red;
+    color:yellow;
+}
+
+table#radiator div.noinfo {
+    background-color:black;
+    color:grey;
+}
+
+span.radia-title {
+    font-size:18px;
+    font-weight:700;
+}
+
+span.radia-text {
+    font-size:10px;
+    font-weight:300;
+}
+
+table#filters {
+    border: 1px solid #993377;
+}
+
+table#filters td {
+    border: 0px;
+    padding: 5px;
+}
+
+#filters .ui-state-active,
+#filters .ui-widget-content .ui-state-active,
+#filters .ui-widget-header .ui-state-active,
+#filters a.ui-button:active,
+#filters .ui-button:active,
+#filters .ui-button.ui-state-active:hover {
+    border: 1px solid #aa3eff;
+    background: #993377;
+}
+
+table.dataTable tbody td.report_commands {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+span.report-name {
+    font-weight:700;
+    color: yellow;
+}
+
+table#plans td {
+    padding: 4px;
+}
+
+a.full-text-baloon:link { text-decoration: none; }
+a.full-text-baloon:visited {    text-decoration: none; }
+a.full-text-baloon:hover {    text-decoration: none; }
+a.full-text-baloon:active {    text-decoration: none; }
+
+*/

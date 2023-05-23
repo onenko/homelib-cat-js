@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./nan-favourite.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -16,7 +17,7 @@
     <script type="text/javascript" src="./nan-helper.js"></script>
     <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.03</title>
+    <title>Nenko's Home Library Catalogue v0.04</title>
 
     <script>
     $(document).ready(function() {
@@ -28,7 +29,17 @@
 
 <body>
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
-<h1>Nenko's Home Library Catalogue v0.03</h1>
+<h1>Nenko's Home Library Catalogue v0.04</h1>
+
+<br/>
+
+<table id="menu"><tr>
+    <td id="menu1" class="menu"><b>Main Table</b></td>
+    <td id="menu2" class="menu">Detail View</td>
+    <td id="menu3" class="menu">Authors</td>
+</tr></table>
+
+<hr/>
 
 <table id="tbl" class="display" cellspacing="0" width="100%" border="1">
     <tfoot>
