@@ -5,9 +5,18 @@ var UT = {
       console.log(LangHelper.isValid("ZZ"));
       console.log(LangHelper.isValid("uk"));
       console.log("TEST 1 END");
-  }
+  },
 
+  Table_BOOKS_data: function() {
+      console.log("TEST 2 START");
+      BOOKS_data.init();
+      console.log(BOOKS_data.getById('978-0-00-731208-5'));
+      console.log("TEST 2 END");
+  }
 }
+
+
+
 
 <!--      console.log("TEST 2 START");-->
 <!--      read_lines_and_process('descr-helper.js', new function(line) {-->
