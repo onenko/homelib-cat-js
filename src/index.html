@@ -7,31 +7,41 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-    <script type="text/javascript" src="./lang-helper.js"></script>
-    <!-- script type="text/javascript" src="./file-helper.js"></script -->
-    <script type="text/javascript" src="./data/table-books-data.js"></script>
-    <script type="text/javascript" src="./data/table-books.js"></script>
-    <!--script type="text/javascript" src="./data/data-for-view-main.js"></script -->
-
-    <script type="text/javascript" src="./view-main.js"></script>
-
     <script type="text/javascript" src="./nan-helper.js"></script>
+    <script type="text/javascript" src="./lang-helper.js"></script>
+    <script type="text/javascript" src="./view/view-helper.js"></script>
+    <!-- script type="text/javascript" src="./file-helper.js"></script -->
+
+    <script type="text/javascript" src="./data/table-arts-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-arts-driver-csv.js"></script>
+    <script type="text/javascript" src="./data/table-books-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-books-driver-csv.js"></script>
+    <script type="text/javascript" src="./data/table-booksarts-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-booksarts-driver-csv.js"></script>
+
+    <script type="text/javascript" src="./view/view-main.js"></script>
+
     <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.05</title>
+    <title>Nenko's Home Library Catalogue v0.07</title>
 
     <script>
     $(document).ready(function() {
+        var drivers = {
+           BOOKS: BOOKS_driver_csv,
+           ARTS: ARTS_driver_csv,
+           BOOKSARTS: BOOKSARTS_driver_csv };
         UT.LangHelperTest();
         UT.Table_BOOKS_data();
-        ViewMain.initTable();
+        ViewMain.init(drivers);
+        ViewMain.initTable(drivers);
     });
   </script>
 </head>
 
 <body>
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
-<h1>Nenko's Home Library Catalogue v0.05</h1>
+<h1>Nenko's Home Library Catalogue v0.07</h1>
 
 <br/>
 

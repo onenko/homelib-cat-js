@@ -1,5 +1,5 @@
 /*
-* table-books-data.js
+* table-books-data-csv.js
 *
 * This file contains CSV content with rows of BOOKS database table
 *
@@ -20,36 +20,8 @@ Flags - marks for filter, i. E. book completed (read)
 const BOOKS_data_columns_array = ['Id', 'Author', 'Title', 'Year', 'Publisher', 'Ln', 'Type', 'Size', 'Props', 'Image',
     'Loc', 'Time', 'Flags' ];
 
-const BOOKS_data_array = [
+const BOOKS_data_csv = [
 "Кідрук~Макс~Бот`Кідрук, Макс`Бот`2008``uk`fb2`3550`````DONE",
-"Коэльо~Пауло~Алхимик`Коэльо, Пауло`Алхимик`1988`Publisher`ru`hcb`89`````",
+"Коэльо~Пауло~Алхимик`Коэльо, Пауло`Алхимик`1989`Publisher`ru`hcb`89`````",
 "978-0-00-731208-5`Bushnell, Candace`Summer and the City`2011`Harper Collins`en`hcb`410```Nicaragua9``"
 ];
-
-const BOOKS_data = {
-  map: new Map(),
-
-  init: function() {
-    for (var i = 0; i < BOOKS_data_array.length; i++) {
-      const columns = BOOKS_data_array[i].split('`');
-      if(columns.length != 13) {
-        console.log("ERROR in BOOKS data, line " + i + ": " + BOOKS_data_array[i]);
-      } else {
-        var book = new Object();
-        for(var col = 0; col < 13; col++) {
-            book[BOOKS_data_columns_array[col]] = columns[col];
-        }
-        this.map.set(columns[0], book);
-      }
-    }
-  },
-
-  getFiltered: function(filter) {
-    return Array.from(this.map.entries());
-  },
-
-  getById: function(id) {
-    return this.map.get(id);
-  }
-
-};
