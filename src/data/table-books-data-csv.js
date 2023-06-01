@@ -22,6 +22,6 @@ const BOOKS_data_columns_array = ['Id', 'Author', 'Title', 'Year', 'Publisher', 
 
 const BOOKS_data_csv = [
 "Кідрук~Макс~Бот`Кідрук, Макс`Бот`2008``uk`fb2`3550`````DONE",
-"Коэльо~Пауло~Алхимик`Коэльо, Пауло`Алхимик`1988`Publisher`ru`hcb`89`````",
+"Коэльо~Пауло~Алхимик`Коэльо, Пауло`Алхимик`1989`Publisher`ru`hcb`89`````",
 "978-0-00-731208-5`Bushnell, Candace`Summer and the City`2011`Harper Collins`en`hcb`410```Nicaragua9``"
 ];

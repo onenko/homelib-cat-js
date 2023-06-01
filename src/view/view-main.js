@@ -4,11 +4,14 @@
 */
 var ViewMain = {
 
-  columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
-  columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
+  columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Original Title', 'Year', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
+  columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'OrigTitle', 'CreY', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
   view_filter: null,
 
-  init: function() {
+  init: function(drivers) {
+    drivers.BOOKS.init();
+    drivers.ARTS.init();
+    drivers.BOOKSARTS.init();
   },
 
   initTable: function(drivers) {
@@ -60,6 +63,16 @@ var ViewMain = {
       line.Props = book.Props;
       line.Loc = book.Loc;
       line.Flags = book.Flags;
+
+      let arts = BOOKSARTS_driver_csv.getByBookId(book.Id);
+      if(arts.length > 0) {
+        let art = ARTS_driver_csv.getById(arts[0]);
+        if(art != null) {
+          line.OrigTitle = art.Title;
+          line.CreY = art.Year;
+        }
+      }
+
       lines.push(line);
     }
     return lines;

@@ -8,13 +8,14 @@ const BOOKS_driver_csv = {
   map: new Map(),
 
   init: function() {
+    const COL_COUNT = BOOKS_data_columns_array.length;
     for (var i = 0; i < BOOKS_data_csv.length; i++) {
       const columns = BOOKS_data_csv[i].split('`');
-      if(columns.length != 13) {
+      if(columns.length != COL_COUNT) {
         console.log("ERROR in BOOKS data, line " + i + ": " + BOOKS_data_csv[i]);
       } else {
         var book = new Object();
-        for(var col = 0; col < 13; col++) {
+        for(var col = 0; col < COL_COUNT; col++) {
             book[BOOKS_data_columns_array[col]] = columns[col];
         }
         this.map.set(columns[0], book);
