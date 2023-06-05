@@ -12,6 +12,8 @@ var ViewMain = {
     drivers.BOOKS.init();
     drivers.ARTS.init();
     drivers.BOOKSARTS.init();
+    drivers.PERSONS.init();
+    drivers.AUTHORS.init();
   },
 
   initTable: function(drivers) {
@@ -52,6 +54,18 @@ var ViewMain = {
     for(let i = 0; i < rows.length; i++) {
       const book = rows[i][1];  // [0] key: Book.Id, [1] value: Book
       var line = new Object();
+
+      let arts = BOOKSARTS_driver_csv.getByBookId(book.Id);
+      if(arts.length > 0) {
+        let art = ARTS_driver_csv.getById(arts[0]);
+        if(art != null) {
+          // Just 2 columns in Main View
+          line.OrigTitle = art.Title;
+          line.CreY = art.Year;
+          this.updateBookByArt(book, art);
+        }
+      }
+
       line.Author = book.Author;
       line.Title = book.Title;
       line.PubY = book.Year;
@@ -64,18 +78,25 @@ var ViewMain = {
       line.Loc = book.Loc;
       line.Flags = book.Flags;
 
-      let arts = BOOKSARTS_driver_csv.getByBookId(book.Id);
-      if(arts.length > 0) {
-        let art = ARTS_driver_csv.getById(arts[0]);
-        if(art != null) {
-          line.OrigTitle = art.Title;
-          line.CreY = art.Year;
-        }
-      }
-
       lines.push(line);
     }
     return lines;
+  },
+
+  /*
+  * If Book has references in the Author, title or Year, resolve it through crossreferenced Art object
+  */
+  updateBookByArt: function(book, art) {
+    if('@' == book.Title) {
+      book.Title = art.Title;
+    }
+    if('@' == book.Author) {
+      let authors = ARTS_driver_csv.getPersonNamesOfArt(art.Id);
+      book.Author = authors.join('; ');
+    }
+    if('@' == book.Year) {
+      book.Year = art.Year;
+    }
   }
 
 }
