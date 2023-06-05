@@ -26,6 +26,7 @@ const ARTS_data_columns_array = ['Id', 'Title', 'Year', 'Ln', 'Type', 'Ref' ];
 const ARTS_data_csv = [
 "Кідрук:Бот:a`Бот`2008`uk`N`",
 "Кідрук:Бот2:a`Бот:Гуаякільський синдром`2015`uk`N`",
-"Coelho:O~Alquimista`O Alquimista`1988`pt`N`",
-"Bushnell:Summer~and~the~City:a`Summer and the City`2011`en`N`"
+"Coelho:O~Alquimista:a`O Alquimista`1988`pt`N`",
+"Bushnell:Summer~and~the~City:a`Summer and the City`2011`en`N`",
+"Ilf:Petrov:Zolotoy~telenok:a`Золотой теленок`1931`ru`N`"
 ];

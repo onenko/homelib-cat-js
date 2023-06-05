@@ -22,6 +22,13 @@ const BOOKS_data_columns_array = ['Id', 'Author', 'Title', 'Year', 'Publisher', 
 
 const BOOKS_data_csv = [
 "Кідрук~Макс~Бот`Кідрук, Макс`Бот`2008``uk`fb2`3550`````DONE",
-"Коэльо~Пауло~Алхимик`Коэльо, Пауло`Алхимик`1989`Publisher`ru`hcb`89`````",
-"978-0-00-731208-5`Bushnell, Candace`Summer and the City`2011`Harper Collins`en`hcb`410```Nicaragua9``"
+"Коэльо~П~Алхимик`Коэльо, Пауло`Алхимик`1989`Publisher`ru`hcb`89`````",
+"978-0-00-731208-5`@`@`@`Harper Collins`en`hcb`410```Nicaragua9``",
+"978-5-04-155250-3`@`@`2021`Эксмо`ru`hcb`384`````TEST"
 ];
+
+/* RESERVED
+"978-0-00-731208-5`Bushnell, Candace`Summer and the City`2011`Harper Collins`en`hcb`410```Nicaragua9``"
+"978-5-04-155250-3`Ильф и Петров`Золотой теленок`2021`Эксмо`ru`hcb`384`````TEST"
+
+*/

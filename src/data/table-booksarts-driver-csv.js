@@ -1,7 +1,7 @@
 /*
 * table-booksarts-driver-csv.js
 *
-* Driver to access data table "BOOKS", rows are in the CSV format and embedded in 'table-booksarts-data-csv.js'
+* Driver to access data table "BOOKARTS", rows are in the CSV format and embedded in 'table-booksarts-data-csv.js'
 *
 * TODO: implement some faster algorithm to retrieve data, i. e. sort the list for one way search, and create
 *   map of lists for reverse search, or ask ChatGPT how to best implement many-to-many relation in memory in JS

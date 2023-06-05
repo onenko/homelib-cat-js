@@ -12,8 +12,12 @@
     <script type="text/javascript" src="./view/view-helper.js"></script>
     <!-- script type="text/javascript" src="./file-helper.js"></script -->
 
+    <script type="text/javascript" src="./data/table-persons-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-persons-driver-csv.js"></script>
     <script type="text/javascript" src="./data/table-arts-data-csv.js"></script>
     <script type="text/javascript" src="./data/table-arts-driver-csv.js"></script>
+    <script type="text/javascript" src="./data/table-authors-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-authors-driver-csv.js"></script>
     <script type="text/javascript" src="./data/table-books-data-csv.js"></script>
     <script type="text/javascript" src="./data/table-books-driver-csv.js"></script>
     <script type="text/javascript" src="./data/table-booksarts-data-csv.js"></script>
@@ -23,14 +27,16 @@
 
     <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.07</title>
+    <title>Nenko's Home Library Catalogue v0.08</title>
 
     <script>
     $(document).ready(function() {
         var drivers = {
            BOOKS: BOOKS_driver_csv,
            ARTS: ARTS_driver_csv,
-           BOOKSARTS: BOOKSARTS_driver_csv };
+           BOOKSARTS: BOOKSARTS_driver_csv,
+           PERSONS: PERSONS_driver_csv,
+           AUTHORS: AUTHORS_driver_csv };
         UT.LangHelperTest();
         UT.Table_BOOKS_data();
         ViewMain.init(drivers);
@@ -41,7 +47,7 @@
 
 <body>
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
-<h1>Nenko's Home Library Catalogue v0.07</h1>
+<h1>Nenko's Home Library Catalogue v0.08</h1>
 
 <br/>
 
