@@ -71,6 +71,13 @@ td.dimmed {
     color: #777777;
 }
 
+span.tiny, a.tiny
+{
+    font-size:9px;
+    font-weight:200;
+    color:#CCEEEE;
+}
+
 
 /*
 

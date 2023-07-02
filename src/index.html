@@ -12,6 +12,8 @@
     <script type="text/javascript" src="./view/view-helper.js"></script>
     <!-- script type="text/javascript" src="./file-helper.js"></script -->
 
+    <script type="text/javascript" src="./data/table-cycles-data-csv.js"></script>
+    <script type="text/javascript" src="./data/table-cycles-driver-csv.js"></script>
     <script type="text/javascript" src="./data/table-persons-data-csv.js"></script>
     <script type="text/javascript" src="./data/table-persons-driver-csv.js"></script>
     <script type="text/javascript" src="./data/table-arts-data-csv.js"></script>
@@ -32,6 +34,7 @@
     <script>
     $(document).ready(function() {
         var drivers = {
+           CYCLES: CYCLES_driver_csv,
            BOOKS: BOOKS_driver_csv,
            ARTS: ARTS_driver_csv,
            BOOKSARTS: BOOKSARTS_driver_csv,

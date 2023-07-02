@@ -25,5 +25,3 @@ function buildDataTablesColumnsArray(columns, datas) {
   return arr;
 }
 
-
-
