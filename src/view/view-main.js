@@ -15,6 +15,7 @@ var ViewMain = {
     drivers.BOOKSARTS.init();
     drivers.PERSONS.init();
     drivers.AUTHORS.init();
+    drivers.NOTES.init();
   },
 
   initTable: function(drivers) {

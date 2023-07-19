@@ -23,7 +23,6 @@ Ref - reference to the origin of this art, to the original art of this translati
 Cycle - reference to id in CYCLES table if this art belongs to some cycle, or empty otherwise
 CycleNum - number of this art in the cycle; this should be string field, that allow coding numbers, and also something like 3.2 - this may be helpful to keep some info about subcycles.
 */
-const ARTS_data_columns_array = ['Id', 'Title', 'Year', 'Ln', 'Type', 'Ref', 'Cycle', 'CycleNum' ];
 
 const ARTS_data_csv = [
 "Кідрук:Бот:a`Бот`2008`uk`N``Кідрук:Бот:cy`1",

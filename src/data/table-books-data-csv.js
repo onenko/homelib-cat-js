@@ -19,11 +19,7 @@ Flags - marks for filter, i. E. book completed (read)
 User - user id, to filter out books, belonging to a specific user in multiuser database.
 Collection - reference to id in CYCLES table if this book belongs to some collection, or empty otherwise
 CollectionNum - number of this book in the collection; this should be number field.
-
 */
-const BOOKS_data_columns_array = ['Id', 'Author', 'Title', 'Year', 'Publisher', 'Ln', 'Type', 'Size', 'Props', 'Image',
-    'Loc', 'Time', 'Flags', 'User', 'Collection', 'CollectionNum' ];
-
 const BOOKS_data_csv = [
 "Кідрук~Макс~Бот`Кідрук, Макс`Бот`2008``uk`fb2`3550`````DONE```",
 "Кідрук~Макс~Бот2`@`@`2015``uk`fb2`2990`````DONE```",

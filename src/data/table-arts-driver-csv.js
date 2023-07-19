@@ -3,24 +3,33 @@
 *
 * Driver to access data table "ARTS", rows are in the CSV format and embedded in 'table-arts-data-csv.js'
 */
+const ARTS_data_columns_array = ['Id', 'Title', 'Year', 'Ln', 'Type', 'Ref', 'Cycle', 'CycleNum' ];
+
 const ARTS_driver_csv = {
 
   map: new Map(),
 
   init: function() {
+    ARTS_data_csv.forEach(this.load, this);
+  },
+
+  load: function(line) {
     const COL_COUNT = ARTS_data_columns_array.length;
-    for (var i = 0; i < ARTS_data_csv.length; i++) {
-      const columns = ARTS_data_csv[i].split('`');
-      if(columns.length != COL_COUNT) {
-        console.log("ERROR in ARTS data, line " + i + ": " + ARTS_data_csv[i]);
-      } else {
-        var art = new Object();
-        for(var col = 0; col < COL_COUNT; col++) {
-            art[ARTS_data_columns_array[col]] = columns[col];
-        }
-        this.map.set(columns[0], art);
+    const columns = line.split('`');
+    if(columns.length != COL_COUNT) {
+      const errInfo = "(parsed " + columns.length + " columns, expected " + COL_COUNT + ")";
+      console.log("ERROR in ARTS data " + errInfo + ", line " + i + ": " + line);
+    } else {
+      let art = new Object();
+      for(let col = 0; col < COL_COUNT; col++) {
+          art[ARTS_data_columns_array[col]] = columns[col];
       }
+      this.map.set(columns[0], art);
     }
+  },
+
+  count: function() {
+    return map.size;
   },
 
   /*

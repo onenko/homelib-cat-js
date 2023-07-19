@@ -6,8 +6,6 @@
 ArtId
 BookId
 */
-const BOOKSARTS_data_columns_array = ['ArtId', 'BookId' ];
-
 const BOOKSARTS_data_csv = [
 "Кідрук:Бот:a`Кідрук~Макс~Бот",
 "Кідрук:Бот2:a`Кідрук~Макс~Бот2",

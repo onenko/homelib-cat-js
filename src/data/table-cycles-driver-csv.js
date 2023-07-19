@@ -3,24 +3,33 @@
 *
 * Driver to access data table "CYCLES", rows are in the CSV format and embedded in 'table-cycles-data-csv.js'
 */
+const CYCLES_data_columns_array = ['Id', 'Name', 'Publisher' ];
+
 const CYCLES_driver_csv = {
 
   map: new Map(),
 
   init: function() {
+    CYCLES_data_csv.forEach(this.load, this);
+  },
+
+  load: function(line) {
     const COL_COUNT = CYCLES_data_columns_array.length;
-    for (var i = 0; i < CYCLES_data_csv.length; i++) {
-      const columns = CYCLES_data_csv[i].split('`');
-      if(columns.length != COL_COUNT) {
-        console.log("ERROR in CYCLES data, line " + i + ": " + CYCLES_data_csv[i]);
-      } else {
-        var cycle = new Object();
-        for(var col = 0; col < COL_COUNT; col++) {
-            cycle[CYCLES_data_columns_array[col]] = columns[col];
-        }
-        this.map.set(columns[0], cycle);
+    const columns = line.split('`');
+    if(columns.length != COL_COUNT) {
+      const errInfo = "(parsed " + columns.length + " columns, expected " + COL_COUNT + ")";
+      console.log("ERROR in CYCLES data " + errInfo + ", line " + i + ": " + line);
+    } else {
+      let cycle = new Object();
+      for(let col = 0; col < COL_COUNT; col++) {
+        cycle[CYCLES_data_columns_array[col]] = columns[col];
       }
+      this.map.set(columns[0], cycle);
     }
+  },
+
+  count: function() {
+    return map.size;
   },
 
   /*

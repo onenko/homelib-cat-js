@@ -3,24 +3,34 @@
 *
 * Driver to access data table "BOOKS", rows are in the CSV format and embedded in 'table-books-data-csv.js'
 */
+const BOOKS_data_columns_array = ['Id', 'Author', 'Title', 'Year', 'Publisher', 'Ln', 'Type', 'Size', 'Props', 'Image',
+    'Loc', 'Time', 'Flags', 'User', 'Collection', 'CollectionNum' ];
+
 const BOOKS_driver_csv = {
 
   map: new Map(),
 
   init: function() {
+    BOOKS_data_csv.forEach(this.load, this);
+  },
+
+  load: function(line) {
     const COL_COUNT = BOOKS_data_columns_array.length;
-    for (var i = 0; i < BOOKS_data_csv.length; i++) {
-      const columns = BOOKS_data_csv[i].split('`');
-      if(columns.length != COL_COUNT) {
-        console.log("ERROR in BOOKS data, line " + i + ": " + BOOKS_data_csv[i]);
-      } else {
-        var book = new Object();
-        for(var col = 0; col < COL_COUNT; col++) {
-            book[BOOKS_data_columns_array[col]] = columns[col];
-        }
-        this.map.set(columns[0], book);
+    const columns = line.split('`');
+    if(columns.length != COL_COUNT) {
+      const errInfo = "(parsed " + columns.length + " columns, expected " + COL_COUNT + ")";
+      console.log("ERROR in BOOKS data " + errInfo + ", line " + i + ": " + line);
+    } else {
+      let book = new Object();
+      for(let col = 0; col < COL_COUNT; col++) {
+          book[BOOKS_data_columns_array[col]] = columns[col];
       }
+      this.map.set(columns[0], book);
     }
+  },
+
+  count: function() {
+    return map.size;
   },
 
   /*

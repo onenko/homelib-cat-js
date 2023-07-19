@@ -6,24 +6,33 @@
 * TODO: implement some faster algorithm to retrieve data, i. e. sort the list for one way search, and create
 *   map of lists for reverse search, or ask ChatGPT how to best implement many-to-many relation in memory in JS
 */
+const AUTHORS_data_columns_array = ['ArtId', 'PersonId', 'Role' ];
+
 const AUTHORS_driver_csv = {
 
   list: [],
 
   init: function() {
+    AUTHORS_data_csv.forEach(this.load, this);
+  },
+
+  load: function(line) {
     const COL_COUNT = AUTHORS_data_columns_array.length;
-    for (var i = 0; i < AUTHORS_data_csv.length; i++) {
-      const columns = AUTHORS_data_csv[i].split('`');
-      if(columns.length != COL_COUNT) {
-        console.log("ERROR in AUTHORS data, line " + i + ": " + AUTHORS_data_csv[i]);
-      } else {
-        var author = new Object();
-        for(var col = 0; col < COL_COUNT; col++) {
-            author[AUTHORS_data_columns_array[col]] = columns[col];
-        }
-        this.list.push(author);
+    const columns = line.split('`');
+    if(columns.length != COL_COUNT) {
+      const errInfo = "(parsed " + columns.length + " columns, expected " + COL_COUNT + ")";
+      console.log("ERROR in AUTHORS data " + errInfo + ", line " + i + ": " + line);
+    } else {
+      let author = new Object();
+      for(let col = 0; col < COL_COUNT; col++) {
+        author[AUTHORS_data_columns_array[col]] = columns[col];
       }
+      this.list.push(author);
     }
+  },
+
+  count: function() {
+    return list.length;
   },
 
   /*

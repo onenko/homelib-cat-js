@@ -8,8 +8,6 @@
 * If an art has several authors/translators, they should be retrieved in the predefined order,
 * which is coded as A0, A1, ...
 */
-const AUTHORS_data_columns_array = ['ArtId', 'PersonId', 'Role' ];
-
 const AUTHORS_data_csv = [
 "Кідрук:Бот:a`Кідрук~Макс:p`A",
 "Кідрук:Бот2:a`Кідрук~Макс:p`A",

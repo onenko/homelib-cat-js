@@ -12,8 +12,21 @@ var UT = {
       BOOKS_driver_csv.init();
       console.log(BOOKS_driver_csv.getById('978-0-00-731208-5'));
       console.log("TEST 2 END");
+  },
+
+  Table_NOTES_data: function() {
+      console.log("TEST 3 START");
+      NOTES_driver_csv.init();
+      console.log(NOTES_driver_csv.getById('Кідрук:Бот:a'));
+      console.log("TEST 3 END");
   }
+
 }
+
+
+
+
+
 
 
 

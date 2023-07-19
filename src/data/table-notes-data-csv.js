@@ -12,9 +12,9 @@
 *
 * So we can have several records with Type=P, id=CoelhoP, Ln=”sp” - which contain the biography of Paulo Coelho, and they differ by timestamps.
 */
-const NOTES_data_columns_array = ['Type', 'Id', 'Ln', 'Ts', 'Text' ];
 
 const NOTES_data_csv = [
 "A`Кідрук:Бот:a`uk`0`Український програміст їде у відрядження в чилійську пустелю Атакама на секретний об'єкт, щоб запобігти техногенній катастрофі. Історія замішана на програмуванні і наноботах. Технотриллер, коротше кажучи.",
 "P`Coelho~Paulo:p`uk`0`Пауло Коельо - відомий бразильський письменник, народився 24 серпня 1947 року в Ріо-де-Жанейро. Сама відома книга - \"Алхімік\"/O Alquimista, 1988 рік. В цей час ПК живе в Бразилії та Франції."
 ];
+

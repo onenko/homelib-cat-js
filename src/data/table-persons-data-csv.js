@@ -9,8 +9,6 @@ Type - who is he - writer, translator, or artist of reading (O/T/R)
 Born - year of birth
 Died - empty if alive, ? if unknown, or year of death
 */
-const PERSONS_data_columns_array = ['Id', 'Name', 'Born', 'Died', 'Type' ];
-
 const PERSONS_data_csv = [
 "Кідрук~Макс:p`Кідрук, Макс`?``O",
 "Coelho~Paulo:p`Coelho, Paulo`1947``O",
