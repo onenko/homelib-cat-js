@@ -29,8 +29,24 @@ const BOOKS_driver_csv = {
     }
   },
 
+  save: function() {
+    const COL_COUNT = BOOKS_data_columns_array.length;
+    let result = '';
+    for (const [id, book] of this.map) {
+      for(let col = 0; col < COL_COUNT; col++) {
+        field = book[BOOKS_data_columns_array[col]];
+        if( ! field) {
+          field = '';
+        }
+        separator = col < (COL_COUNT - 1) ? '`' : '\n';
+        result = result + field + separator;
+      }
+    }
+    return result;
+  },
+
   count: function() {
-    return map.size;
+    return this.map.size;
   },
 
   /*

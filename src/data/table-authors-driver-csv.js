@@ -31,8 +31,24 @@ const AUTHORS_driver_csv = {
     }
   },
 
+  save: function() {
+    const COL_COUNT = AUTHORS_data_columns_array.length;
+    let result = '';
+    for (const record in this.list) {
+      for(let col = 0; col < COL_COUNT; col++) {
+        field = record[AUTHORS_data_columns_array[col]];
+        if( ! field) {
+          field = '';
+        }
+        separator = col < (COL_COUNT - 1) ? '`' : '\n';
+        result = result + field + separator;
+      }
+    }
+    return result;
+  },
+
   count: function() {
-    return list.length;
+    return this.list.length;
   },
 
   /*

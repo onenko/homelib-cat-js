@@ -28,8 +28,24 @@ const CYCLES_driver_csv = {
     }
   },
 
+  save: function() {
+    const COL_COUNT = CYCLES_data_columns_array.length;
+    let result = '';
+    for (const [id, cycle] of this.map) {
+      for(let col = 0; col < COL_COUNT; col++) {
+        field = cycle[CYCLES_data_columns_array[col]];
+        if( ! field) {
+          field = '';
+        }
+        separator = col < (COL_COUNT - 1) ? '`' : '\n';
+        result = result + field + separator;
+      }
+    }
+    return result;
+  },
+
   count: function() {
-    return map.size;
+    return this.map.size;
   },
 
   /*

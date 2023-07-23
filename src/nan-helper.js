@@ -44,6 +44,17 @@ function Ms2YYYYMMDDhhmmssttt(ms) {
 }
 
 /**
+ * curr_date_YYMMDDhhmmss
+ *
+ * Output format is string: YYMMDDhhmmss
+ */
+function curr_date_YYMMDDhhmmss() {
+	var time = new Date();
+	return To00(time.getYear()) + To00(time.getMonth() + 1) + To00(time.getDate()) +
+	       To00(time.getHours()) + To00(time.getMinutes()) + To00(time.getSeconds());
+}
+
+/**
  * denull - returns string '(?)' if argument is null
  */
 function denuller(val) {
