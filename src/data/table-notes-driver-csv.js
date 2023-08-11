@@ -3,7 +3,8 @@
 *
 * Driver to access data table "NOTES", rows are in the CSV format and embedded in 'table-notes-data-csv.js'
 *
-* NOTE: as 'Id' does not uniquely identify exact note, lets keep data in the map of lists
+* NOTE1: as 'Id' does not uniquely identify exact note, lets keep data in the map of lists
+* NOTE2: once again: key is Art's or Person's ID, but value is ARRAY of objects (of Notes)
 */
 const NOTES_data_columns_array = ['Type', 'Id', 'Ln', 'Ts', 'Text' ];
 
@@ -13,6 +14,10 @@ const NOTES_driver_csv = {
 
   init: function() {
     NOTES_data_csv.forEach(this.load, this);
+  },
+
+  clean: function() {
+    this.map = new Map();
   },
 
   load: function(line) {
@@ -31,17 +36,9 @@ const NOTES_driver_csv = {
   },
 
   save: function() {
-    const COL_COUNT = NOTES_data_columns_array.length;
     let result = '';
-    for (const [id, note] of this.map) {
-      for(let col = 0; col < COL_COUNT; col++) {
-        field = note[NOTES_data_columns_array[col]];
-        if( ! field) {
-          field = '';
-        }
-        separator = col < (COL_COUNT - 1) ? '`' : '\n';
-        result = result + field + separator;
-      }
+    for (const [id, recordsArray] of this.map) {
+      result = result + dataList2csv(NOTES_data_columns_array, recordsArray);
     }
     return result;
   },

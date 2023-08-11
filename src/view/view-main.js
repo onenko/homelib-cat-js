@@ -31,6 +31,11 @@ var ViewMain = {
       } );
   },
 
+  refreshTable: function(drivers) {
+    $('#tbl').DataTable().destroy();
+    this.initTable(drivers);
+  },
+
   select: function(filter, drivers) {
     let rows = drivers.BOOKS.getFiltered(filter);
     var lines = [];

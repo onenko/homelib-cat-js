@@ -49,3 +49,15 @@ async function writeStringToClientFile2(data1, data2) {
     console.error('Error:', error);
   }
 }
+
+async function openFileForRead(drivers) {
+  let file = null;
+  try {
+    const [fileHandle] = await window.showOpenFilePicker();
+    file = await fileHandle.getFile();
+    readTextFile(file, drivers);
+  } catch (err) {
+    console.error(err);
+  }
+  return file;
+}

@@ -16,6 +16,10 @@ const BOOKSARTS_driver_csv = {
     BOOKSARTS_data_csv.forEach(this.load, this);
   },
 
+  clean: function() {
+    this.list = [];
+  },
+
   load: function(line) {
     const COL_COUNT = BOOKSARTS_data_columns_array.length;
     const columns = line.split('`');
@@ -32,19 +36,7 @@ const BOOKSARTS_driver_csv = {
   },
 
   save: function() {
-    const COL_COUNT = BOOKSARTS_data_columns_array.length;
-    let result = '';
-    for (const record in this.list) {
-      for(let col = 0; col < COL_COUNT; col++) {
-        field = record[BOOKSARTS_data_columns_array[col]];
-        if( ! field) {
-          field = '';
-        }
-        separator = col < (COL_COUNT - 1) ? '`' : '\n';
-        result = result + field + separator;
-      }
-    }
-    return result;
+    return dataList2csv(BOOKSARTS_data_columns_array, this.list);
   },
 
   count: function() {

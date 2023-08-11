@@ -32,7 +32,7 @@
 
     <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.11</title>
+    <title>Nenko's Home Library Catalogue v0.12</title>
 
     <script>
     $(document).ready(function() {
@@ -58,6 +58,14 @@
           let data = generate_lcbcf_content(drivers);
           writeStringToClientFile2(data, '');
         });
+        document.getElementById('importLink').addEventListener('click', function() {
+          if(confirm("Loading backup file (LCBCF) will erase all current catalogue data in memory. Do you really want to do it?")) {
+            const file = openFileForRead(drivers);
+            console.log('y' + file);
+          } else {
+            console.log('import cancelled by a user');
+          }
+        });
     });
 
   </script>
@@ -65,7 +73,7 @@
 
 <body>
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
-<h1>Nenko's Home Library Catalogue v0.11</h1>
+<h1>Nenko's Home Library Catalogue v0.12</h1>
 
 <br/>
 
@@ -76,6 +84,7 @@
     <td> &nbsp;</td>
     <td><a id="export1Link" href="#" title="Save all the Catalogue to CSV file 'export.lcbcf' in Downloads folder">[EXPORT1]</a></td>
     <td><a id="export2Link" href="#" title="Save all the Catalogue to the existing CSV file you select">[EXPORT2]</a></td>
+    <td><a id="importLink" href="#" title="Load all the Catalogue from the existing CSV file you select">[IMPORT]</a></td>
 </tr></table>
 
 <hr/>

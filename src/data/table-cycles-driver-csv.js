@@ -13,6 +13,10 @@ const CYCLES_driver_csv = {
     CYCLES_data_csv.forEach(this.load, this);
   },
 
+  clean: function() {
+    this.map = new Map();
+  },
+
   load: function(line) {
     const COL_COUNT = CYCLES_data_columns_array.length;
     const columns = line.split('`');
@@ -29,19 +33,7 @@ const CYCLES_driver_csv = {
   },
 
   save: function() {
-    const COL_COUNT = CYCLES_data_columns_array.length;
-    let result = '';
-    for (const [id, cycle] of this.map) {
-      for(let col = 0; col < COL_COUNT; col++) {
-        field = cycle[CYCLES_data_columns_array[col]];
-        if( ! field) {
-          field = '';
-        }
-        separator = col < (COL_COUNT - 1) ? '`' : '\n';
-        result = result + field + separator;
-      }
-    }
-    return result;
+    return dataMap2csv(CYCLES_data_columns_array, this.map);
   },
 
   count: function() {

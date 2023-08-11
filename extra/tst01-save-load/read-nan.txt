@@ -1,0 +1,5 @@
+0) We have 7 items catalog hardcoded in sources.
+1) We export this data to homelib-cat-js\extra\tst01-save-load\export1.lcbcf
+2) We import data from this file into memory
+3) We again export data to homelib-cat-js\extra\tst01-save-load\export2.lcbcf
+4) We compare export1.lcbcf and export2.lcbcf and they differ only by 1st header record (timestamp).
