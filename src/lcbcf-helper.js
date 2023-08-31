@@ -1,7 +1,6 @@
 /*
 * lcbcf-helper.js - all things related to LCBCF - Library Catalogue Backup CSV File
 */
-const HOMELIB_CAT_VERSION = '0.12';
 const LCBCF_VERSION = '1.00';
 /**
  * lcbcf_count_lines()

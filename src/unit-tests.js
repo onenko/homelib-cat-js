@@ -19,6 +19,17 @@ var UT = {
       NOTES_driver_csv.init();
       console.log(NOTES_driver_csv.getById('Кідрук:Бот:a'));
       console.log("TEST 3 END");
+  },
+
+  GenreHelperTest: function() {
+      console.log("TEST 4 START");
+      console.log(GenreHelper.isGenreValid("act"));
+      console.log(GenreHelper.isGenreValid("sf-space"));
+      console.log(GenreHelper.isGenreValid("zzz"));
+      console.log(GenreHelper.isGenresStringValid("sfs/adv"));
+      console.log(GenreHelper.isGenresStringValid("sfs/zzz"));
+      console.log(GenreHelper.isGenresStringValid("s-f/spy/his"));
+      console.log("TEST 4 END");
   }
 
 }

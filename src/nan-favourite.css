@@ -78,7 +78,16 @@ span.tiny, a.tiny
     color:#CCEEEE;
 }
 
+.hidden {
+    display: none;
+}
 
+#author-suggestions-container {
+    border: 1px solid #ccc;
+    max-height: 250px;
+    overflow-y: auto;
+    margin: 5px;
+}
 /*
 
 

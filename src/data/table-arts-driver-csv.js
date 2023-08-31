@@ -3,7 +3,7 @@
 *
 * Driver to access data table "ARTS", rows are in the CSV format and embedded in 'table-arts-data-csv.js'
 */
-const ARTS_data_columns_array = ['Id', 'Title', 'Year', 'Ln', 'Type', 'Ref', 'Cycle', 'CycleNum' ];
+const ARTS_data_columns_array = ['Id', 'Title', 'Year', 'Ln', 'Type', 'Genre', 'Ref', 'Cycle', 'CycleNum' ];
 
 const ARTS_driver_csv = {
 

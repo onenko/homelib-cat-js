@@ -7,11 +7,18 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
+    <script type="text/javascript" src="./cfg/cfg.js"></script>
+    <script type="text/javascript" src="./cfg/mls.js"></script>
+    <script type="text/javascript" src="./cfg/mls-en.js"></script>
+    <script type="text/javascript" src="./cfg/mls-uk.js"></script>
+
     <script type="text/javascript" src="./nan-helper.js"></script>
     <script type="text/javascript" src="./file-helper.js"></script>
+    <script type="text/javascript" src="./genre-helper.js"></script>
     <script type="text/javascript" src="./lang-helper.js"></script>
     <script type="text/javascript" src="./view/view-helper.js"></script>
     <script type="text/javascript" src="./lcbcf-helper.js"></script>
+    <script type="text/javascript" src="./data-input-helper.js"></script>
 
     <script type="text/javascript" src="./data/table-cycles-data-csv.js"></script>
     <script type="text/javascript" src="./data/table-cycles-driver-csv.js"></script>
@@ -32,40 +39,84 @@
 
     <script type="text/javascript" src="./unit-tests.js"></script>
 
-    <title>Nenko's Home Library Catalogue v0.12</title>
+    <title>Nenko's Home Library Catalogue - updated by MLS</title>
 
     <script>
     $(document).ready(function() {
-        var drivers = {
-           CYCLES: CYCLES_driver_csv,
-           BOOKS: BOOKS_driver_csv,
-           ARTS: ARTS_driver_csv,
-           BOOKSARTS: BOOKSARTS_driver_csv,
-           PERSONS: PERSONS_driver_csv,
-           AUTHORS: AUTHORS_driver_csv,
-           NOTES: NOTES_driver_csv };
-        UT.LangHelperTest();
-        UT.Table_BOOKS_data();
-        UT.Table_NOTES_data();
-        ViewMain.init(drivers);
-        ViewMain.initTable(drivers);
-        document.getElementById('export1Link').addEventListener('click', function() {
-          let doc = prompt("Please enter file name to export catalogue data to: ", "export.lcbcf");
-          let data = generate_lcbcf_content(drivers);
-          writeStringToClientFile(data, doc);
-        });
-        document.getElementById('export2Link').addEventListener('click', function() {
-          let data = generate_lcbcf_content(drivers);
-          writeStringToClientFile2(data, '');
-        });
-        document.getElementById('importLink').addEventListener('click', function() {
-          if(confirm("Loading backup file (LCBCF) will erase all current catalogue data in memory. Do you really want to do it?")) {
-            const file = openFileForRead(drivers);
-            console.log('y' + file);
-          } else {
-            console.log('import cancelled by a user');
-          }
-        });
+      updateLanguage('en'); // Set default language
+      var drivers = {
+        CYCLES: CYCLES_driver_csv,
+        BOOKS: BOOKS_driver_csv,
+        ARTS: ARTS_driver_csv,
+        BOOKSARTS: BOOKSARTS_driver_csv,
+        PERSONS: PERSONS_driver_csv,
+        AUTHORS: AUTHORS_driver_csv,
+        NOTES: NOTES_driver_csv };
+      UT.LangHelperTest();
+      UT.Table_BOOKS_data();
+      UT.Table_NOTES_data();
+      UT.GenreHelperTest();
+      ViewMain.init(drivers);
+      ViewMain.initTable(drivers);
+      document.getElementById('export1Link').addEventListener('click', function() {
+        let doc = prompt("Please enter file name to export catalogue data to: ", "export.lcbcf");
+        let data = generate_lcbcf_content(drivers);
+        writeStringToClientFile(data, doc);
+      });
+      document.getElementById('export2Link').addEventListener('click', function() {
+        let data = generate_lcbcf_content(drivers);
+        writeStringToClientFile2(data, '');
+      });
+      document.getElementById('importLink').addEventListener('click', function() {
+        if(confirm("Loading backup file (LCBCF) will erase all current catalogue data in memory. Do you really want to do it?")) {
+          const file = openFileForRead(drivers);
+          console.log('y' + file);
+        } else {
+          console.log('import cancelled by a user');
+        }
+      });
+      $('.lang-selector').on('change', function() {
+        let selectedLang = $(this).val();
+        updateLanguage(selectedLang);
+      });
+      document.getElementById('newBook1').addEventListener('click', function() {
+        console.log("newBook1");
+        document.getElementById("newBook1Form").classList.toggle("hidden");
+      });
+
+<!--      document.getElementById('checkAuthor').addEventListener('click', function() {-->
+<!--        console.log("checkAuthor");-->
+<!--        let authorInput = document.getElementById("author1").value;-->
+<!--        console.log("checkAuthor:" + authorInput);-->
+<!--      });-->
+
+      document.getElementById("newBook1Form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        document.getElementById("newBook1Form").classList.toggle("hidden");
+
+        console.log("newBook1 submitted");
+        // Get form input values
+<!--        var name = document.getElementById("name").value;-->
+<!--        var email = document.getElementById("email").value;-->
+
+<!--        // Get table and tbody elements-->
+<!--        var table = document.getElementById("myTable");-->
+<!--        var tbody = table.getElementsByTagName("tbody")[0];-->
+<!--    -->
+<!--        // Create a new row-->
+<!--        var newRow = tbody.insertRow();-->
+<!--        -->
+<!--        // Insert cells and set their content-->
+<!--        var cell1 = newRow.insertCell(0);-->
+<!--        var cell2 = newRow.insertCell(1);-->
+<!--        cell1.innerHTML = name;-->
+<!--        cell2.innerHTML = email;-->
+<!--    -->
+<!--        // Reset form fields-->
+<!--        document.getElementById("name").value = "";-->
+<!--        document.getElementById("email").value = "";-->
+      });
     });
 
   </script>
@@ -73,11 +124,12 @@
 
 <body>
 <img src="./images/Bookshelf.jpg" align="right" width="222" />
-<h1>Nenko's Home Library Catalogue v0.12</h1>
+<h1>Nenko's Home Library Catalogue - updated by MLS</h1>
 
 <br/>
 
-<table id="menu"><tr>
+<table id="menu" width="100%">
+  <tr style="white-space: nowrap;">
     <td id="menu1" class="menu"><b>Main Table</b></td>
     <td id="menu2" class="menu">Detail View</td>
     <td id="menu3" class="menu">Authors</td>
@@ -85,9 +137,28 @@
     <td><a id="export1Link" href="#" title="Save all the Catalogue to CSV file 'export.lcbcf' in Downloads folder">[EXPORT1]</a></td>
     <td><a id="export2Link" href="#" title="Save all the Catalogue to the existing CSV file you select">[EXPORT2]</a></td>
     <td><a id="importLink" href="#" title="Load all the Catalogue from the existing CSV file you select">[IMPORT]</a></td>
-</tr></table>
+    <td><a id="newBook1" href="#" title="Add new book to the Catalogue">[NEW BOOK]</a></td>
+    <td width="88%"></td>
+    <td><span id="select-lang"></span>
+        <select class="lang-selector">
+        <option value="en">English</option>
+        <option value="uk">Українська</option>
+    </select></td>
+  </tr>
+</table>
 
 <hr/>
+<form id="newBook1Form" class="hidden">
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required onkeyup="autocompleteAuthor(event)">
+    <div id="author-suggestions-container" class="hidden"></div>
+    <br/>
+    <label for="title">Email:</label>
+    <input type="text" id="title" name="title" required>
+    <br/>
+    <button type="submit">Submit</button>
+    <br/>
+</form>
 
 <table id="tbl" class="display" cellspacing="0" width="100%" border="1">
     <tfoot>
