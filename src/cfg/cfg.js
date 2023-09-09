@@ -3,6 +3,6 @@
   This folder contains all configuration and i18n stuff
 */
 var cfg = {
-  version: "v0.13"
+  version: "v0.14"
 };
 

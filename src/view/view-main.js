@@ -4,8 +4,8 @@
 */
 var ViewMain = {
 
-  columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Original Title', 'Year', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
-  columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'OrigTitle', 'CreY', 'Typ', 'Size', 'Props', 'Loc', 'Flags' ],
+  columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Typ', 'Size', 'Original Title', 'Genre', 'Year', 'Props', 'Loc', 'Flags' ],
+  columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'Typ', 'Size', 'OrigTitle', 'Genre', 'CreY', 'Props', 'Loc', 'Flags' ],
   view_filter: null,
 
   init: function(drivers) {
@@ -16,6 +16,7 @@ var ViewMain = {
     drivers.PERSONS.init();
     drivers.AUTHORS.init();
     drivers.NOTES.init();
+    HLC_DB_Facade.init(drivers);
   },
 
   initTable: function(drivers) {
@@ -28,6 +29,13 @@ var ViewMain = {
           bPaginate: false,
           data: this.select(this.view_filter, drivers),
           columns: columnsArray
+
+          /* FAILED to USE IT -- problem in CHROME Cross-Origin Read Blocking (CORB) blocked cross-origin response https://cdn.datatables.net/plug-ins/1.13.4/i18n/en"
+          ,
+          language: {
+            url: MLS_dataTableLanguageUrl
+          } */
+
       } );
   },
 
@@ -47,10 +55,11 @@ var ViewMain = {
       if(arts.length > 0) {
         let art = ARTS_driver_csv.getById(arts[0]);
         if(art != null) {
-          // Just 2 columns in Main View
+          // Just 3 columns in Main View
 //          line.OrigTitle = art.Title;
           line.OrigTitle = this.addCycleInfoToOriginalTitleCell(art);
           line.CreY = art.Year;
+          line.Genre = art.Genre;
           this.updateBookByArt(book, art);
         }
       }

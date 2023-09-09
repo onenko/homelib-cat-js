@@ -18,6 +18,10 @@ const BOOKS_driver_csv = {
     this.map = new Map();
   },
 
+  addBook: function(book) {
+    this.map.set(book.Id, book);
+  },
+
   load: function(line) {
     const COL_COUNT = BOOKS_data_columns_array.length;
     const columns = line.split('`');

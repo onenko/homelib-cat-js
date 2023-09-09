@@ -141,8 +141,8 @@ function parseStringWithLCBCF(lcbcf, drivers) {
     console.log('line:' + line);
   }
 
-    $('#tbl').DataTable().destroy();
-    ViewMain.initTable(drivers);
+  $('#tbl').DataTable().destroy();
+  ViewMain.initTable(drivers);
 
 
 //  ViewMain.refreshTable(drivers);
