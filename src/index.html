@@ -118,6 +118,11 @@
           console.log(MLS_AddBook_OK);
         }
       });
+
+      document.getElementById("add-book-cancel").addEventListener("click", function(event) {
+        document.getElementById("newBook1Form").classList.toggle("hidden");
+      });
+
     });
 
   </script>
@@ -179,6 +184,7 @@
     -->
   </p><p>
     <button type="submit" id="add-book-submit">Add Book</button>
+    <button id="add-book-cancel">Cancel</button>
   </p>
 </form>
 

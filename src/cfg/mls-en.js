@@ -15,7 +15,8 @@ var mls_en = {
     labelForBookIsbn1: "Book Id (ISBN): ",
     labelForArtYear1: "Written year: ",
     labelForArtLang1: "Original Lang: ",
-    addBookSubmit: "Add Book"
+    addBookSubmit: "Add Book",
+    addBookCancel: "Cancel"
 
 };
 

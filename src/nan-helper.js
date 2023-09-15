@@ -55,7 +55,7 @@ function curr_date_YYMMDDhhmmss() {
 }
 
 /**
- * denull - returns string '(?)' if argument is null
+ * denuller - returns string '(?)' if argument is null
  */
 function denuller(val) {
   return val == null || val == undefined ? '?' : val;

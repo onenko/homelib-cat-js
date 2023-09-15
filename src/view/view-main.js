@@ -6,6 +6,7 @@ var ViewMain = {
 
   columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Typ', 'Size', 'Original Title', 'Genre', 'Year', 'Props', 'Loc', 'Flags' ],
   columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'Typ', 'Size', 'OrigTitle', 'Genre', 'CreY', 'Props', 'Loc', 'Flags' ],
+  columns_renders: [denuller, denuller, denuller, denuller, denuller, denuller, denuller, denuller, this.addArtLink, denuller, denuller, denuller, denuller, denuller],
   view_filter: null,
 
   init: function(drivers) {
@@ -22,7 +23,7 @@ var ViewMain = {
   initTable: function(drivers) {
     var footTr = $("#tbl").find('#tfoot-tr');
     footTr[0].innerHTML = buildFooterRow(this.columns_titles);
-    var columnsArray = buildDataTablesColumnsArray(this.columns_titles, this.columns_datas);
+    var columnsArray = buildDataTablesColumnsArray(this.columns_titles, this.columns_datas, this.columns_renders);
 
     $('#tbl').DataTable( {
 //          ajax: "/ajaxForTable",
@@ -79,6 +80,13 @@ var ViewMain = {
       lines.push(line);
     }
     return lines;
+  },
+
+  /*
+  * addArtLink - when Art data missing, places link to Original Title to create/add title
+  */
+  addArtLink: function(data, type, row) {
+    return data ? data : '<a href="*" class="add-art-link">?</a>';
   },
 
   /*

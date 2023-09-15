@@ -18,10 +18,10 @@ function buildFooterRow(columns) {
  *  - columns - array of columns titles
  *  - datas - array of data for columns
  */
-function buildDataTablesColumnsArray(columns, datas) {
+function buildDataTablesColumnsArray(columns, datas, renders) {
   var arr = [];
   for(var i = 0; i < columns.length; i++)
-    arr.push( { title: columns[i], data: datas[i], render: denuller });
+    arr.push( { title: columns[i], data: datas[i], render: renders[i] });
   return arr;
 }
 

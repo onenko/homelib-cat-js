@@ -15,5 +15,6 @@ var mls_uk = {
     labelForBookIsbn1: "Id книги (ISBN): ",
     labelForArtYear1: "Рік написання: ",
     labelForArtLang1: "Оригінальна мова: ",
-    addBookSubmit: "Добавити книгу"
+    addBookSubmit: "Добавити книгу",
+    addBookCancel: "Скасувати"
 };

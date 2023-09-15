@@ -31,6 +31,7 @@ function updateLanguage(lang, drivers) {
 //    $('#label-for-art-year1').text(mls.labelForArtYear1);
 //    $('#label-for-art-lang1').text(mls.labelForArtLang1);
     $('#add-book-submit').text(mls.addBookSubmit);
+    $('#add-book-cancel').text(mls.addBookCancel);
 
     // here we should recreate DataTables with language: url:
 /*    if(drivers) {
