@@ -81,6 +81,16 @@
         let selectedLang = $(this).val();
         updateLanguage(selectedLang, drivers);
       });
+
+      $('.add-art-link').on('click', function(event) {
+        event.preventDefault();
+        const element = event.target;
+        const bookId = element.dataset.mydata;
+        let errMsg = "Add Art for " + bookId;
+        alert(errMsg);
+        console.log(errMsg);
+      });
+
       document.getElementById('newBook1').addEventListener('click', function() {
         console.log("newBook1");
         document.getElementById("newBook1Form").classList.toggle("hidden");

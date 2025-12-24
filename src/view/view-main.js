@@ -6,7 +6,7 @@ var ViewMain = {
 
   columns_titles: ['Author', 'Title', 'PubY', 'Ln', 'Id', 'Publisher', 'Typ', 'Size', 'Original Title', 'Genre', 'Year', 'Props', 'Loc', 'Flags' ],
   columns_datas: ['Author', 'Title', 'PubY', 'PubLn', 'BookId', 'Publisher', 'Typ', 'Size', 'OrigTitle', 'Genre', 'CreY', 'Props', 'Loc', 'Flags' ],
-  columns_renders: [denuller, denuller, denuller, denuller, denuller, denuller, denuller, denuller, this.addArtLink, denuller, denuller, denuller, denuller, denuller],
+  columns_renders: [denuller, denuller, denuller, denuller, denuller, denuller, denuller, denuller, addArtLink, denuller, denuller, denuller, denuller, denuller],
   view_filter: null,
 
   init: function(drivers) {
@@ -85,8 +85,8 @@ var ViewMain = {
   /*
   * addArtLink - when Art data missing, places link to Original Title to create/add title
   */
-  addArtLink: function(data, type, row) {
-    return data ? data : '<a href="*" class="add-art-link">?</a>';
+  addArtLink: function(data /*, type, row */) {
+    return data == null || data == undefined ? '<a href="*" class="add-art-link">?</a>' : data;
   },
 
   /*
@@ -135,4 +135,9 @@ var ViewMain = {
     return cycleInfo + art.Title;
   }
 
+}
+
+function addArtLink(data, type, row) {
+  let bookId = row.BookId;
+  return data == null || data == undefined ? '<a href="#" class="add-art-link" data-mydata="' + bookId + '">?</a>' : data;
 }
